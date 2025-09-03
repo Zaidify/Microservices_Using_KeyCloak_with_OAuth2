@@ -5,10 +5,12 @@ import com.fitness.userservice.dto.UserResponse;
 import com.fitness.userservice.dto.registerRequest;
 import com.fitness.userservice.model.User;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class UserService {
 
     private UserRepository repository;
@@ -52,6 +54,7 @@ public class UserService {
       }
 
     public Boolean existByUserId(String userId) {
+        log.info("Calling User Service for {}", userId);
         return repository.existsById(userId);
     }
 }
